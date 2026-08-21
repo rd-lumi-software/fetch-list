@@ -1,13 +1,13 @@
 name: Sync with other storage
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
 
   workflow_dispatch:
 
 jobs:
   sync:
-    runs-on: ['self-hosted', 'relay', 'infra']
+    runs-on: arc-linux-amd64
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -19,8 +19,8 @@ jobs:
           bucket: ${{ vars.LOCAL_MINIO_BUCKET }}
           access_key: ${{ secrets.LOCAL_MINIO_ACCESS_KEY }}
           secret_key: ${{ secrets.LOCAL_MINIO_SECRET_KEY }}
-          remote_path: '/'
-          local_path: './production'
+          remote_path: "/"
+          local_path: "./production"
           recursive: true
 
       - name: Sync staging to local minio
@@ -30,8 +30,8 @@ jobs:
           bucket: ${{ vars.LOCAL_MINIO_BUCKET }}
           access_key: ${{ secrets.LOCAL_MINIO_ACCESS_KEY }}
           secret_key: ${{ secrets.LOCAL_MINIO_SECRET_KEY }}
-          remote_path: '/'
-          local_path: './staging'
+          remote_path: "/"
+          local_path: "./staging"
           recursive: true
 
       - name: Sync rnd to local minio
@@ -41,8 +41,8 @@ jobs:
           bucket: ${{ vars.LOCAL_MINIO_BUCKET }}
           access_key: ${{ secrets.LOCAL_MINIO_ACCESS_KEY }}
           secret_key: ${{ secrets.LOCAL_MINIO_SECRET_KEY }}
-          remote_path: '/'
-          local_path: './rnd'
+          remote_path: "/"
+          local_path: "./rnd"
           recursive: true
 
       - name: Sync production to R2
@@ -52,11 +52,11 @@ jobs:
           bucket: ${{ vars.R2_BUCKET }}
           access_key: ${{ secrets.R2_ACCESS_KEY }}
           secret_key: ${{ secrets.R2_SECRET_KEY }}
-          remote_path: '/'
-          local_path: './production'
+          remote_path: "/"
+          local_path: "./production"
           recursive: true
           extra_args: --path off
-          api_signature_version: 'S3v4'
+          api_signature_version: "S3v4"
 
       - name: Sync staging to R2
         uses: marverlous811/minio-upload@v1.2.0
@@ -65,11 +65,11 @@ jobs:
           bucket: ${{ vars.R2_BUCKET }}
           access_key: ${{ secrets.R2_ACCESS_KEY }}
           secret_key: ${{ secrets.R2_SECRET_KEY }}
-          remote_path: '/'
-          local_path: './staging'
+          remote_path: "/"
+          local_path: "./staging"
           recursive: true
           extra_args: --path off
-          api_signature_version: 'S3v4'
+          api_signature_version: "S3v4"
 
       - name: Sync rnd to R2
         uses: marverlous811/minio-upload@v1.2.0
@@ -78,8 +78,8 @@ jobs:
           bucket: ${{ vars.R2_BUCKET }}
           access_key: ${{ secrets.R2_ACCESS_KEY }}
           secret_key: ${{ secrets.R2_SECRET_KEY }}
-          remote_path: '/'
-          local_path: './rnd'
+          remote_path: "/"
+          local_path: "./rnd"
           recursive: true
           extra_args: --path off
-          api_signature_version: 'S3v4'
+          api_signature_version: "S3v4"
