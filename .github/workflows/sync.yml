@@ -7,7 +7,7 @@ on:
 
 jobs:
   sync:
-    runs-on: arc-linux-amd64
+    runs-on: ["self-hosted", "native", "Linux"]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
