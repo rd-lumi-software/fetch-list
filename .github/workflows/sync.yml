@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Sync production to local minio
-        uses: marverlous811/minio-upload@v1.4.0
+        uses: marverlous811/minio-upload@v1.4.1
         with:
           endpoint: ${{ vars.LOCAL_ENDPOINT }}
           bucket: ${{ vars.LOCAL_MINIO_BUCKET }}
@@ -24,7 +24,7 @@ jobs:
           recursive: true
 
       - name: Sync staging to local minio
-        uses: marverlous811/minio-upload@v1.4.0
+        uses: marverlous811/minio-upload@v1.4.1
         with:
           endpoint: ${{ vars.LOCAL_ENDPOINT }}
           bucket: ${{ vars.LOCAL_MINIO_BUCKET }}
@@ -35,7 +35,7 @@ jobs:
           recursive: true
 
       - name: Sync rnd to local minio
-        uses: marverlous811/minio-upload@v1.4.0
+        uses: marverlous811/minio-upload@v1.4.1
         with:
           endpoint: ${{ vars.LOCAL_ENDPOINT }}
           bucket: ${{ vars.LOCAL_MINIO_BUCKET }}
@@ -46,7 +46,7 @@ jobs:
           recursive: true
 
       - name: Sync production to R2
-        uses: marverlous811/minio-upload@v1.4.0
+        uses: marverlous811/minio-upload@v1.4.1
         with:
           endpoint: ${{ vars.R2_ENDPOINT }}
           bucket: ${{ vars.R2_BUCKET }}
@@ -59,7 +59,7 @@ jobs:
           api_signature_version: "S3v4"
 
       - name: Sync staging to R2
-        uses: marverlous811/minio-upload@v1.4.0
+        uses: marverlous811/minio-upload@v1.4.1
         with:
           endpoint: ${{ vars.R2_ENDPOINT }}
           bucket: ${{ vars.R2_BUCKET }}
@@ -72,7 +72,7 @@ jobs:
           api_signature_version: "S3v4"
 
       - name: Sync rnd to R2
-        uses: marverlous811/minio-upload@v1.4.0
+        uses: marverlous811/minio-upload@v1.4.1
         with:
           endpoint: ${{ vars.R2_ENDPOINT }}
           bucket: ${{ vars.R2_BUCKET }}
