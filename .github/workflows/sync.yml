@@ -7,7 +7,7 @@ on:
 
 jobs:
   sync:
-    runs-on: ["self-hosted", "native", "Linux"]
+    runs-on: "self-hosted"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
