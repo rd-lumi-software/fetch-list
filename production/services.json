@@ -1,0 +1,10 @@
+[
+  {
+    "name": "lumilife-api",
+    "domains": ["api.smarthome.lumi.biz", "api.smarthome.lumi.vn"]
+  },
+  {
+    "name": "lumilife-media",
+    "domains": ["media.smarthome.lumi.biz", "media.smarthome.lumi.vn"]
+  }
+]
